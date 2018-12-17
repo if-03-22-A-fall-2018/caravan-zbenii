@@ -1,21 +1,32 @@
 /*-----------------------------------------------------------------------------
- *				HTBLA-Leonding / Class: <your class name here>
+ *				HTBLA-Leonding / Class: <2AHIF>
  *-----------------------------------------------------------------------------
  * Exercise Number: #exercise_number#
  * File:			caravan.c
- * Author(s):		Peter Bauer
+ * Author(s):		Benjamin Besic
  * Due Date:		#due#
  *-----------------------------------------------------------------------------
  * Description:
  * <your description here>
  *-----------------------------------------------------------------------------
 */
+#include "caravan.h"
+
+struct CaravanImplementation{
+  AnimalType type;
+  char* name;
+  int max_speed;
+  int load;
+  Caravan* my_caravan;
+};
+
 Caravan new_caravan()
 {
 }
 
 int get_length(Caravan caravan)
 {
+
 }
 
 void delete_caravan(Caravan caravan)
