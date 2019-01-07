@@ -25,7 +25,6 @@ struct PackAnimalImplementation {
 	Caravan caravan;
 };
 
-
 static PackAnimal new_pack_animal(const char *name);
 PackAnimal new_camel(const char *name, int max_speed)
 {
