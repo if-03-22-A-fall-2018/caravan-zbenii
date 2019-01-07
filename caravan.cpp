@@ -41,6 +41,7 @@ int get_length(Caravan caravan)
 {
   int count=0;
   Node* currentNode=caravan->head;
+
   while(currentNode!=0)
   {
     count++;
@@ -51,13 +52,15 @@ int get_length(Caravan caravan)
 
 void delete_caravan(Caravan caravan)
 {
-  int length=get_length(caravan);
+  Node* head=caravan->head;
 
-  for (int i = 0; i < length; i++) {
-    Node* head=caravan->head;
+  while(caravan->head!=0)
+  {
+    head=caravan->head;
     caravan->head=head->next;
     free(head);
   }
+
   free(caravan);
 }
 
@@ -72,10 +75,10 @@ void add_pack_animal(Caravan caravan, PackAnimal animal)
   }
 
   animal->caravan = caravan;
-  Node* new_node = (Node*)malloc(sizeof(Node));
-  new_node->pack_animal = animal;
-  new_node->next = caravan->head;
-  caravan->head = new_node;
+  Node* node= (Node*)malloc(sizeof(Node));
+  node->pack_animal = animal;
+  node->next = caravan->head;
+  caravan->head = node;
 
 }
 
@@ -87,11 +90,12 @@ int get_caravan_load(Caravan caravan)
 {
   int length = get_length(caravan);
   int load_count = 0;
-  Node* crnt_node = caravan->head;
+
+  Node* currentNode = caravan->head;
 
   for(int i = 0; i < length; i++){
-    load_count += crnt_node->pack_animal->load;
-    crnt_node = crnt_node->next;
+    load_count += currentNode->pack_animal->load;
+    currentNode = currentNode->next;
   }
 
   return load_count;
@@ -101,15 +105,16 @@ void unload(Caravan caravan)
 {
   int length = get_length(caravan);
 
-  Node* crnt_node = caravan->head;
+  Node* currentNode = caravan->head;
 
   for(int i = 0; i < length; i++){
-    crnt_node->pack_animal->load = 0;
-    crnt_node = crnt_node->next;
+    currentNode->pack_animal->load = 0;
+    currentNode = currentNode->next;
   }
 
 }
 
 int get_caravan_speed(Caravan caravan)
 {
+  return 0;
 }
