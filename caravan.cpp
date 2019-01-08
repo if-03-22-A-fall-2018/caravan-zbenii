@@ -88,12 +88,12 @@ void remove_pack_animal(Caravan caravan, PackAnimal animal)
 
 int get_caravan_load(Caravan caravan)
 {
-  int length = get_length(caravan);
   int load_count = 0;
 
   Node* currentNode = caravan->head;
 
-  for(int i = 0; i < length; i++){
+  while(currentNode!=0)
+	{
     load_count += currentNode->pack_animal->load;
     currentNode = currentNode->next;
   }
@@ -103,11 +103,10 @@ int get_caravan_load(Caravan caravan)
 
 void unload(Caravan caravan)
 {
-  int length = get_length(caravan);
-
   Node* currentNode = caravan->head;
 
-  for(int i = 0; i < length; i++){
+  while(currentNode!=0)
+	{
     currentNode->pack_animal->load = 0;
     currentNode = currentNode->next;
   }
